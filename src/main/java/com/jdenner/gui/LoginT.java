@@ -145,7 +145,7 @@ public class LoginT  extends javax.swing.JFrame  {
     private void btnAcessActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcessActionPerformed
         String sql, resultado;
         try {
-            sql = "SELECT senha FROM tbfuncionario where nome = ?";
+            sql = "SELECT senha FROM TbPaciente where usuario = ?";
             PreparedStatement ps = cond.getConexao().prepareStatement(sql);
             ps.setString(1, jUser.getText());
             ResultSet rs ;
