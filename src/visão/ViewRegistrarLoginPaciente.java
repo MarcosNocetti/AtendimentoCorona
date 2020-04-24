@@ -5,6 +5,9 @@
  */
 package visão;
 
+import java.awt.event.ItemEvent;
+import java.util.ArrayList;
+import java.util.List;
 import modeloBeans.ClassePaciente;
 import modeloBeans.ClassePessoa;
 import modeloDao.DAOPaciente;
@@ -15,6 +18,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import static javax.swing.JOptionPane.YES_NO_OPTION;
+import modeloBeans.ClasseCidade;
+import modeloDao.DAOCidades;
 
 /**
  *
@@ -39,11 +44,9 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jLabelUsuario = new javax.swing.JLabel();
         txtUsuario = new javax.swing.JTextField();
         jLabelEstado = new javax.swing.JLabel();
-        txtEstado = new javax.swing.JTextField();
         jLabelIdade = new javax.swing.JLabel();
         txtIdade = new javax.swing.JTextField();
         jLabelCidade = new javax.swing.JLabel();
-        txtCidade = new javax.swing.JTextField();
         jLabelTelefone = new javax.swing.JLabel();
         txtTelefone = new javax.swing.JTextField();
         jLabelSenha = new javax.swing.JLabel();
@@ -53,7 +56,6 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jLabelCpf = new javax.swing.JLabel();
         txtRg = new javax.swing.JTextField();
         txtCep = new javax.swing.JTextField();
-        txtSexo = new javax.swing.JTextField();
         txtNumCasa = new javax.swing.JTextField();
         txtBairro = new javax.swing.JTextField();
         txtComplemento = new javax.swing.JTextField();
@@ -71,6 +73,9 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         txtDescricaoSintomas = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
+        txtSexo = new javax.swing.JComboBox<>();
+        txtEstado = new javax.swing.JComboBox<>();
+        txtCidade = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -106,9 +111,6 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jLabelEstado.setText("Estado :");
         jPanel1.add(jLabelEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 159, -1, -1));
 
-        txtEstado.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 330, -1));
-
         jLabelIdade.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabelIdade.setText("Idade :");
         jPanel1.add(jLabelIdade, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, 20));
@@ -119,9 +121,6 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jLabelCidade.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabelCidade.setText("Cidade :");
         jPanel1.add(jLabelCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, 20));
-
-        txtCidade.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel1.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 330, -1));
 
         jLabelTelefone.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         jLabelTelefone.setText("Telefone :");
@@ -151,7 +150,6 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jPanel1.add(jLabelCpf, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, 40));
         jPanel1.add(txtRg, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 400, 360, 25));
         jPanel1.add(txtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 360, 25));
-        jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 330, 23));
         jPanel1.add(txtNumCasa, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 260, 25));
         jPanel1.add(txtBairro, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 250, 330, 23));
         jPanel1.add(txtComplemento, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 260, 25));
@@ -209,6 +207,23 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         jLabel2.setText("Descrição sintomas :");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, -1, -1));
 
+        txtSexo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Masculino", "Feminino", "Outro" }));
+        txtSexo.setSelectedIndex(-1);
+        jPanel1.add(txtSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 330, -1));
+
+        txtEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acre (AC)", "Alagoas (AL)", "Amapá (AP)", "Amazonas (AM)", "Bahia (BA)", "Ceará (CE)", "Distrito Federal (DF)", "Espírito Santo (ES)", "Goiás (GO)", "Maranhão (MA)", "Mato Grosso (MT)", "Mato Grosso do Sul (MS)", "Minas Gerais (MG)", "Pará (PA)", "Paraíba (PB)", "Paraná (PR)", "Pernambuco (PE)", "Piauí (PI)", "Rio de Janeiro (RJ)", "Rio Grande do Norte (RN)", "Rio Grande do Sul (RS)", "Rondônia (RO)", "Roraima (RR)", "Santa Catarina (SC)", "São Paulo (SP)", "Sergipe (SE)", "Tocantins (TO)" }));
+        txtEstado.setSelectedIndex(-1);
+        txtEstado.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                txtEstadoItemStateChanged(evt);
+            }
+        });
+        jPanel1.add(txtEstado, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 160, 330, -1));
+
+        txtCidade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " " }));
+        txtCidade.setSelectedIndex(-1);
+        jPanel1.add(txtCidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 190, 330, -1));
+
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 800, 480));
 
         jPanel3.setBackground(new java.awt.Color(13, 130, 203));
@@ -230,12 +245,12 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
         ClassePessoa novoClassePessoa = new ClassePessoa(); // instanciando → objeto → classe Paciente                                                
             
             novoClassePessoa.nome = txtNome.getText().trim();
-            novoClassePessoa.sexo = txtSexo.getText().trim();
+            novoClassePessoa.sexo = (String) txtSexo.getSelectedItem();
             novoClassePessoa.idade = txtIdade.getText().trim();
             novoClassePessoa.email = txtEmail.getText().trim();
             novoClassePessoa.telefone = txtTelefone.getText().trim();
-            novoClassePessoa.estado = txtEstado.getText().trim();
-            novoClassePessoa.cidade = txtCidade.getText().trim();
+            novoClassePessoa.estado = (String) txtEstado.getSelectedItem();
+            novoClassePessoa.cidade = (String) txtCidade.getSelectedItem();
             novoClassePessoa.rua = txtRua.getText().trim();
             novoClassePessoa.bairro = txtBairro.getText().trim();
             novoClassePessoa.numCasa = txtNumCasa.getText().trim();
@@ -292,12 +307,12 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
             {
                 
             txtNome.setText("");
-            txtSexo.setText(""); 
+            txtSexo.setEnabled(false); 
             txtIdade.setText(""); 
             txtEmail.setText(""); 
             txtTelefone.setText(""); 
-            txtEstado.setText("");
-            txtCidade.setText("");
+            txtEstado.setEnabled(false);
+            txtCidade.setEnabled(false);
             txtRua.setText(""); 
             txtBairro.setText("");
             txtComplemento.setText(""); 
@@ -312,6 +327,33 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
             }
             
     }//GEN-LAST:event_jButtonCadastarPacienteActionPerformed
+
+    private void txtEstadoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_txtEstadoItemStateChanged
+       if(evt.getStateChange() == ItemEvent.SELECTED){   
+            
+    
+            DAOCidades listacidade = new DAOCidades();
+            List<ClasseCidade> cidades = new ArrayList();
+            
+            try {
+                txtCidade.removeAllItems();   
+
+              cidades =  listacidade.ListarCidades(txtEstado.getSelectedItem().toString());
+             
+              for (ClasseCidade cidade : cidades) 
+                {
+                 txtCidade.addItem(cidade.nomeCidade.toString());     
+                }               
+               
+            } catch (Exception ex){
+                
+                 JOptionPane.showMessageDialog(null,"Não foi possível listar as cidades" ,"", JOptionPane.ERROR_MESSAGE);
+                 
+                Logger.getLogger(ViewRegistrarLoginEquipeDeSaude.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }
+    }//GEN-LAST:event_txtEstadoItemStateChanged
 
     public static void main(String args[]) 
     {
@@ -353,19 +395,19 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparador;
     public javax.swing.JTextField txtBairro;
     public javax.swing.JTextField txtCep;
-    public javax.swing.JTextField txtCidade;
+    private javax.swing.JComboBox<String> txtCidade;
     public javax.swing.JTextField txtComplemento;
     private javax.swing.JTextField txtCpf;
     public javax.swing.JTextArea txtDescricaoSintomas;
     public javax.swing.JTextField txtEmail;
-    public javax.swing.JTextField txtEstado;
+    public javax.swing.JComboBox<String> txtEstado;
     public javax.swing.JTextField txtIdade;
     public javax.swing.JTextField txtNome;
     public javax.swing.JTextField txtNumCasa;
     private javax.swing.JTextField txtRg;
     public javax.swing.JTextField txtRua;
     private javax.swing.JPasswordField txtSenha;
-    public javax.swing.JTextField txtSexo;
+    public javax.swing.JComboBox<String> txtSexo;
     public javax.swing.JTextField txtTelefone;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

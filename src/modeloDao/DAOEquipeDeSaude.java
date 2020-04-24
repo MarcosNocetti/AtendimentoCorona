@@ -21,9 +21,11 @@ public class DAOEquipeDeSaude {
         ConexaoBD con = new ConexaoBD();
         
         String sql = "insert into equipedesaude (codigoespecial) values (?)";
+        con.getConnection();
         
         try (PreparedStatement ps = con.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
          
+           
             ps.setString(1, novoEquipeDeSaude.getCodigoEspecial());
            
             ps.executeUpdate();
