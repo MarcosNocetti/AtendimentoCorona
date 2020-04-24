@@ -43,6 +43,13 @@ public class Paciente {
         this.Usuario = Usuario;
     }
 
+    public Paciente(int PacienteID, String DescSintomas, String Senha, String Usuario) {
+        this.PacienteID = PacienteID;
+        this.DescSintomas = DescSintomas;
+        this.Senha = Senha;
+        this.Usuario = Usuario;
+    }
+
  
     int PacienteID;
     String DescSintomas;
