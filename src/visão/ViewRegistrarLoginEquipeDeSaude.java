@@ -231,7 +231,7 @@ public class ViewRegistrarLoginEquipeDeSaude extends javax.swing.JFrame  {
 
         jLabel1.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("CADASTRAR INTEGRANTE EQUIPE DE SAÚDE");
+        jLabel1.setText("CADASTRO INTEGRANTE EQUIPE DE SAÚDE");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, -1, 40));
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 40));
@@ -268,7 +268,7 @@ public class ViewRegistrarLoginEquipeDeSaude extends javax.swing.JFrame  {
             novoClasseEquipeDeSaude.setCodigoEspecial(txtCodigoEspeciaEquipeDeSaude.getText().trim());
              
             ClasseCadastro novoCadastroEquipeDeSaude =  new ClasseCadastro();
-            DAOCadastro novoCadastroUsuarioAcessoPacienteDAO = new DAOCadastro(); 
+            DAOCadastro novoCadastroUsuarioAcessoEquipeDeSaudeDAO = new DAOCadastro(); 
             
             novoCadastroEquipeDeSaude.setUsuario(txtUsuario.getText().trim());
             novoCadastroEquipeDeSaude.setSenha(txtSenha.getText().trim());
@@ -279,10 +279,13 @@ public class ViewRegistrarLoginEquipeDeSaude extends javax.swing.JFrame  {
             {
                 
                 novoCadastroPessoaDAO.CadastroDadosPessoa(novoClassePessoa); 
-                novoDadosEquipeDeSaudeDAO.CadastroDadosEquipeDeSaude(novoClasseEquipeDeSaude);
-                novoCadastroUsuarioAcessoPacienteDAO.CadastroAcessoLoginUsuario(novoCadastroEquipeDeSaude);
-               
+                 
+                int chaveEstrangeiraPessoaCadastrada = novoCadastroPessoaDAO.BuscaIdPessoaCadastrada(txtRgEquipedeSaude.getText());
                 
+                novoDadosEquipeDeSaudeDAO.CadastroDadosEquipeDeSaude(novoClasseEquipeDeSaude,chaveEstrangeiraPessoaCadastrada);
+                
+                novoCadastroUsuarioAcessoEquipeDeSaudeDAO.CadastroAcessoLoginUsuario(novoCadastroEquipeDeSaude,chaveEstrangeiraPessoaCadastrada);
+               
                 
             } 
             catch (Exception ex) 

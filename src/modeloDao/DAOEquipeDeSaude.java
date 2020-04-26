@@ -16,17 +16,18 @@ import modeloConection.ConexaoBD;
  */
 public class DAOEquipeDeSaude {
       
-        public void CadastroDadosEquipeDeSaude (ClasseEquipeSaude novoEquipeDeSaude) throws Exception{
+        public void CadastroDadosEquipeDeSaude (ClasseEquipeSaude novoEquipeDeSaude, int chaveEstrangeiraPessoa) throws Exception{
             
         ConexaoBD con = new ConexaoBD();
         
-        String sql = "insert into equipedesaude (codigoespecial) values (?)";
+        String sql = "insert into equipedesaude (codigoespecial,personid) values (?,?)";
         con.getConnection();
         
         try (PreparedStatement ps = con.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
          
            
             ps.setString(1, novoEquipeDeSaude.getCodigoEspecial());
+            ps.setInt(2, chaveEstrangeiraPessoa);
            
             ps.executeUpdate();
             

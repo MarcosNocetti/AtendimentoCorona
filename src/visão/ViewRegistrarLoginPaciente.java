@@ -278,8 +278,12 @@ public class ViewRegistrarLoginPaciente extends javax.swing.JFrame {
             {
                 
                 novoCadastroPessoaDAO.CadastroDadosPessoa(novoClassePessoa); 
-                novoDadosPacienteDAO.CadastroDadosUsuario(novoClassePaciente);
-                novoCadastroUsuarioAcessoPacienteDAO.CadastroAcessoLoginUsuario(novoCadastro);
+                
+                int chaveEstrangeiraPessoaCadastrada = novoCadastroPessoaDAO.BuscaIdPessoaCadastrada(txtRg.getText());
+                
+                novoDadosPacienteDAO.CadastroDadosUsuario(novoClassePaciente,chaveEstrangeiraPessoaCadastrada);
+                
+                novoCadastroUsuarioAcessoPacienteDAO.CadastroAcessoLoginUsuario(novoCadastro,chaveEstrangeiraPessoaCadastrada);
                
                 
                 

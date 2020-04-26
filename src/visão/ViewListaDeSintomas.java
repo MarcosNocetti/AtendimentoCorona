@@ -38,7 +38,7 @@ public class ViewListaDeSintomas extends javax.swing.JFrame {
         jTextArea1.setFont(new java.awt.Font("Monospaced", 1, 13)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("► Sintomas comuns:\n\n• Febre.\n• Cansaço.\n• Tosse seca.\n\n► Outros sintomas que algumas pessoas podem experimentar:\n\n• Dores e dores.\n• Congestão nasal.\n• Coriza.\n• Dor de garganta.\n• Diarréia.\n\nEm média, se leva de cinco a seis dias a partir da data em\nque alguém está infectado com o vírus para que os sintomasapareçam, no entanto, pode levar até 14 dias.\n");
+        jTextArea1.setText("► Sintomas comuns:\n\n• Febre.\n• Cansaço.\n• Tosse seca.\n\n► Outros sintomas que algumas pessoas podem experimentar:\n\n• Dores e dores.\n• Congestão nasal.\n• Coriza.\n• Dor de garganta.\n• Diarréia.\n\nEm média, se leva de cinco a seis dias a partir da data em\nque alguém está infectado com o vírus para que os sintomas  apareçam, no entanto, pode levar até 14 dias.\n");
         jTextArea1.setToolTipText("");
         jTextArea1.setDisabledTextColor(new java.awt.Color(0, 0, 0));
         jTextArea1.setEnabled(false);

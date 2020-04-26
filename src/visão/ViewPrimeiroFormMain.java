@@ -5,6 +5,8 @@
  */
 package visão;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author 
@@ -14,8 +16,12 @@ public class ViewPrimeiroFormMain extends javax.swing.JFrame {
     /**
      * Creates new form Iniciar
      */
+    
     public ViewPrimeiroFormMain() {
+        
         initComponents();
+       
+       
     }
 
     /**
@@ -111,5 +117,8 @@ public class ViewPrimeiroFormMain extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelFundoView;
     private javax.swing.JLabel jLabelTitulo;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
 

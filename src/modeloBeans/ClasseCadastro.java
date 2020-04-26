@@ -20,6 +20,7 @@ public class ClasseCadastro {
     }
    
    public int cadastroId; 
+  // public String userLogado;
    private String usuario; // getters and setters
    private String senha; // getters and setters
    

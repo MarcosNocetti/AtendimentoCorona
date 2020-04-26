@@ -383,3 +383,4 @@ public class ViewLogin extends javax.swing.JFrame {
     private javax.swing.JTextField jtfUsuario;
     // End of variables declaration//GEN-END:variables
 }
+

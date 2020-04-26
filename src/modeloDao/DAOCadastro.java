@@ -19,16 +19,18 @@ import modeloConection.ConexaoBD;
 public class DAOCadastro {
 
  /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        public void CadastroAcessoLoginUsuario (ClasseCadastro novoUsuario) throws Exception{
+        public void CadastroAcessoLoginUsuario (ClasseCadastro novoUsuario, int foreignKeyPessoa) throws Exception{
             
         ConexaoBD con = new ConexaoBD();
         
-        String sql = "insert into cadastro_usuario (usuario, senha) values (?,?)";
+        String sql = "insert into cadastro_usuario (usuario, senha,personid) values (?,?,?)";
         
         try (PreparedStatement ps = con.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
          
             ps.setString(1, novoUsuario.getUsuario());
             ps.setString(2, novoUsuario.getSenha());
+            ps.setInt(3, foreignKeyPessoa);
+            
        
             ps.executeUpdate();
             

@@ -11,6 +11,7 @@ package modeloBeans;
  */
 public class ClassePessoa {
     
+    
      public String nome;
      public String sexo;
      public String idade; // Adicionar no diagrama de classes 

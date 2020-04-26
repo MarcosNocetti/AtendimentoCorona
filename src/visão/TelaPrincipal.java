@@ -5,6 +5,7 @@
  */
 package visão;
 
+import modeloBeans.ClasseAgendamento;
 import modeloBeans.ClassePaciente;
 import modeloBeans.ClasseCadastro;
 import modeloConection.ConexaoBD;
@@ -13,13 +14,17 @@ import modeloConection.ConexaoBD;
 public class TelaPrincipal extends javax.swing.JFrame {
  
     ClasseCadastro userLogado = null;
+    String usuarioLogado;
     ConexaoBD conecta = new ConexaoBD();//Instanciando a classe conexão
-   
+
+    
     public TelaPrincipal(ClasseCadastro user, String usuario) {
-        initComponents();
+        initComponents(); 
         userLogado = user;
+        usuarioLogado =  usuario;
         conecta.getConnection();//Chama todo o método conexao da classe ConexaoBD
-        jLabelUsuariologado.setText(usuario);
+      
+        jLabelUsuariologadoEquipeDeSaude.setText(usuario);
     }
 
     /**
@@ -36,12 +41,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelInternal = new javax.swing.JPanel();
         jButtonAgenda = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jLabelUsuariologado = new javax.swing.JLabel();
+        jLabelUsuariologadoEquipeDeSaude = new javax.swing.JLabel();
         jLabelGerenciamento = new javax.swing.JLabel();
         jButtonSairBemVindo = new javax.swing.JButton();
         jLabelFundoPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuFerramentas = new javax.swing.JMenu();
         jMenuItemTelaBemVindo = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -79,10 +85,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelInternal.add(jLabel2);
         jLabel2.setBounds(10, -10, 120, 50);
 
-        jLabelUsuariologado.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jLabelUsuariologado.setForeground(new java.awt.Color(255, 255, 255));
-        jPanelInternal.add(jLabelUsuariologado);
-        jLabelUsuariologado.setBounds(130, 0, 110, 30);
+        jLabelUsuariologadoEquipeDeSaude.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jLabelUsuariologadoEquipeDeSaude.setForeground(new java.awt.Color(255, 255, 255));
+        jPanelInternal.add(jLabelUsuariologadoEquipeDeSaude);
+        jLabelUsuariologadoEquipeDeSaude.setBounds(130, 0, 110, 30);
 
         jInternalFrameBemVindo.getContentPane().add(jPanelInternal);
         jPanelInternal.setBounds(0, 40, 360, 180);
@@ -111,6 +117,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Menu_1.png"))); // NOI18N
         jMenuCadastro.setText("Funções");
+
+        jMenuItem1.setText("Registrar agendamento");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItem1);
+
         jMenuBar1.add(jMenuCadastro);
 
         jMenuFerramentas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Ferramenta.png"))); // NOI18N
@@ -193,6 +208,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
         mostra.setVisible(true);
     }//GEN-LAST:event_jButtonAgendaActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
+        ViewRegistrarAgendamento agendar = new ViewRegistrarAgendamento(usuarioLogado);
+        agendar.setVisible(true);
+        
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -207,12 +229,13 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelFundoPrincipal;
     private javax.swing.JLabel jLabelGerenciamento;
-    private javax.swing.JLabel jLabelUsuariologado;
+    public javax.swing.JLabel jLabelUsuariologadoEquipeDeSaude;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenu jMenuFerramentas;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenuItem jMenuItemTelaBemVindo;

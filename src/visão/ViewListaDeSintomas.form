@@ -67,7 +67,7 @@
             </Property>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="5"/>
-            <Property name="text" type="java.lang.String" value="&#x25ba; Sintomas comuns:&#xa;&#xa;&#x2022; Febre.&#xa;&#x2022; Cansa&#xe7;o.&#xa;&#x2022; Tosse seca.&#xa;&#xa;&#x25ba; Outros sintomas que algumas pessoas podem experimentar:&#xa;&#xa;&#x2022; Dores e dores.&#xa;&#x2022; Congest&#xe3;o nasal.&#xa;&#x2022; Coriza.&#xa;&#x2022; Dor de garganta.&#xa;&#x2022; Diarr&#xe9;ia.&#xa;&#xa;Em m&#xe9;dia, se leva de cinco a seis dias a partir da data em&#xa;que algu&#xe9;m est&#xe1; infectado com o v&#xed;rus para que os sintomasapare&#xe7;am, no entanto, pode levar at&#xe9; 14 dias.&#xa;"/>
+            <Property name="text" type="java.lang.String" value="&#x25ba; Sintomas comuns:&#xa;&#xa;&#x2022; Febre.&#xa;&#x2022; Cansa&#xe7;o.&#xa;&#x2022; Tosse seca.&#xa;&#xa;&#x25ba; Outros sintomas que algumas pessoas podem experimentar:&#xa;&#xa;&#x2022; Dores e dores.&#xa;&#x2022; Congest&#xe3;o nasal.&#xa;&#x2022; Coriza.&#xa;&#x2022; Dor de garganta.&#xa;&#x2022; Diarr&#xe9;ia.&#xa;&#xa;Em m&#xe9;dia, se leva de cinco a seis dias a partir da data em&#xa;que algu&#xe9;m est&#xe1; infectado com o v&#xed;rus para que os sintomas  apare&#xe7;am, no entanto, pode levar at&#xe9; 14 dias.&#xa;"/>
             <Property name="toolTipText" type="java.lang.String" value=""/>
             <Property name="disabledTextColor" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="0" type="rgb"/>

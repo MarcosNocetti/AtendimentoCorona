@@ -11,6 +11,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import javax.swing.JTextField;
 import modeloConection.ConexaoBD;
 
 /**
@@ -18,6 +19,8 @@ import modeloConection.ConexaoBD;
  * @author SL
  */
 public class DAOPessoa {
+
+ 
     
        public void CadastroDadosPessoa (ClassePessoa novaPessoa) throws Exception{
             
@@ -50,10 +53,45 @@ public class DAOPessoa {
             
            
         }
+      }
+      
+       public int BuscaIdPessoaCadastrada(String valorRg) throws Exception{
         
+        
+        String sql = ("select * from pessoa where rg ='"+valorRg+"'");
+       
+        ConexaoBD con = new ConexaoBD();
+        
+        PreparedStatement ps = con.getConnection().prepareStatement(sql);
+        
+        ResultSet rs = ps.executeQuery();
+        
+        int guardaforeignkeyPacienteCadastradoAtual = 0; 
+          
+       
+        if(rs.next()){
+        
+            
+            guardaforeignkeyPacienteCadastradoAtual = (rs.getInt(1));
+
+            
+            
+        }
+        
+        rs.close();
+        ps.close();
+        
+        
+
+        return guardaforeignkeyPacienteCadastradoAtual;
+    }
+       
+           
     }
         
     
+        
     
     
-}
+    
+
