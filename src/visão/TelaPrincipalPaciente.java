@@ -11,14 +11,14 @@ import modeloBeans.ClasseCadastro;
 import modeloConection.ConexaoBD;
 
 
-public class TelaPrincipal extends javax.swing.JFrame {
+public class TelaPrincipalPaciente extends javax.swing.JFrame {
  
     ClasseCadastro userLogado = null;
     String usuarioLogado;
     ConexaoBD conecta = new ConexaoBD();//Instanciando a classe conexão
 
     
-    public TelaPrincipal(ClasseCadastro user, String usuario) {
+    public TelaPrincipalPaciente(ClasseCadastro user, String usuario) {
         initComponents(); 
         userLogado = user;
         usuarioLogado =  usuario;
@@ -42,17 +42,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jButtonAgenda = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabelUsuariologadoEquipeDeSaude = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
         jLabelGerenciamento = new javax.swing.JLabel();
         jButtonSairBemVindo = new javax.swing.JButton();
         jLabelFundoPrincipal = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuFerramentas = new javax.swing.JMenu();
         jMenuItemTelaBemVindo = new javax.swing.JMenuItem();
@@ -76,14 +70,14 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelInternal.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelInternal.setLayout(null);
 
-        jButtonAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Agendateste.png"))); // NOI18N
+        jButtonAgenda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Forum.png"))); // NOI18N
         jButtonAgenda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAgendaActionPerformed(evt);
             }
         });
         jPanelInternal.add(jButtonAgenda);
-        jButtonAgenda.setBounds(10, 60, 90, 100);
+        jButtonAgenda.setBounds(110, 40, 130, 120);
 
         jLabel2.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -96,30 +90,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jPanelInternal.add(jLabelUsuariologadoEquipeDeSaude);
         jLabelUsuariologadoEquipeDeSaude.setBounds(130, 0, 110, 30);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agendateste2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanelInternal.add(jButton1);
-        jButton1.setBounds(110, 60, 90, 100);
-
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/PESQ.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanelInternal.add(jButton2);
-        jButton2.setBounds(210, 60, 90, 100);
-
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Forum.png"))); // NOI18N
-        jPanelInternal.add(jButton3);
-        jButton3.setBounds(310, 60, 90, 100);
-
         jInternalFrameBemVindo.getContentPane().add(jPanelInternal);
-        jPanelInternal.setBounds(0, 40, 410, 180);
+        jPanelInternal.setBounds(0, 40, 360, 180);
 
         jLabelGerenciamento.setFont(new java.awt.Font("Century Gothic", 1, 18)); // NOI18N
         jLabelGerenciamento.setForeground(new java.awt.Color(255, 255, 255));
@@ -134,10 +106,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
             }
         });
         jInternalFrameBemVindo.getContentPane().add(jButtonSairBemVindo);
-        jButtonSairBemVindo.setBounds(350, 0, 40, 30);
+        jButtonSairBemVindo.setBounds(320, 0, 40, 30);
 
         getContentPane().add(jInternalFrameBemVindo);
-        jInternalFrameBemVindo.setBounds(160, 100, 430, 250);
+        jInternalFrameBemVindo.setBounds(180, 100, 380, 250);
 
         jLabelFundoPrincipal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/FundoView1.png"))); // NOI18N
         getContentPane().add(jLabelFundoPrincipal);
@@ -145,33 +117,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenuCadastro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Menu_1.png"))); // NOI18N
         jMenuCadastro.setText("Funções");
-
-        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Agendateste.png"))); // NOI18N
-        jMenuItem1.setText("Registrar agendamento");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenuCadastro.add(jMenuItem1);
-
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/agendateste2.png"))); // NOI18N
-        jMenuItem2.setText("Cadastrar Teste COVID-19");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jMenuCadastro.add(jMenuItem2);
-
-        jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/PESQ.png"))); // NOI18N
-        jMenuItem4.setText("Visualizar Pacientes");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
-            }
-        });
-        jMenuCadastro.add(jMenuItem4);
 
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Forum.png"))); // NOI18N
         jMenuItem5.setText("Enviar mensagens Fórum");
@@ -259,43 +204,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
-        ViewRegistrarAgendamento agendar = new ViewRegistrarAgendamento(usuarioLogado);
-        agendar.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        ViewRegistrarTesteDoAgendamento regitrarTeste = new ViewRegistrarTesteDoAgendamento(usuarioLogado);
-        regitrarTeste.setVisible(true);
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
-
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        ViewVisualizarPacientes visualizar = new ViewVisualizarPacientes(usuarioLogado);
-        visualizar.setVisible(true);
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
+         ViewEnviarMensagens enviarMensagens = new ViewEnviarMensagens(usuarioLogado);
+         enviarMensagens.setVisible(true);
+    }//GEN-LAST:event_jButtonAgendaActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         ViewEnviarMensagens enviarMensagens = new ViewEnviarMensagens(usuarioLogado);
         enviarMensagens.setVisible(true);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
-
-    private void jButtonAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAgendaActionPerformed
-        ViewRegistrarAgendamento mostra = new ViewRegistrarAgendamento(usuarioLogado);
-        mostra.setVisible(true);
-    }//GEN-LAST:event_jButtonAgendaActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ViewRegistrarTesteDoAgendamento mostra = new ViewRegistrarTesteDoAgendamento(usuarioLogado);
-        mostra.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        ViewVisualizarPacientes visualizar = new ViewVisualizarPacientes(usuarioLogado);
-        visualizar.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -304,9 +221,6 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButtonAgenda;
     private javax.swing.JButton jButtonSairBemVindo;
     private javax.swing.JInternalFrame jInternalFrameBemVindo;
@@ -320,10 +234,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenu jMenuFerramentas;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenuItem jMenuItemTelaBemVindo;

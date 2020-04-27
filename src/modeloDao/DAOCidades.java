@@ -26,29 +26,27 @@ public class DAOCidades {
         ResultSet rs = null; //Armazenar resultado da pesquisa
 
         try {
-            pstm = con.prepareStatement("select * from cidades where estado ='"+uf+"'");
+            pstm = con.prepareStatement("select * from cidades where estado ='" + uf + "'");
             rs = pstm.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
 
                 ClasseCidade listaCidade = new ClasseCidade();
                 listaCidade.nomeCidade = (rs.getString(3));
-               
+
                 listaCidades.add(listaCidade);
-                
-              
+
             }
-         
-              
+
         } catch (SQLException exception) {
 
             JOptionPane.showMessageDialog(null, "Erro ao tentar buscar a pesquisa" + exception);
-            
-        }finally{
+
+        } finally {
             con.close();
-            
+
         }
-        
-       return listaCidades;
+
+        return listaCidades;
     }
 }

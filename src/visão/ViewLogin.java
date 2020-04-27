@@ -230,8 +230,29 @@ public class ViewLogin extends javax.swing.JFrame {
     DAOLogin dao = new DAOLogin();
     
        if(dao.checkLogin(jtfUsuario.getText(), jpfSenha.getText())){
+           
+           boolean paciente =  false ;
+           
+        try {
+            
+            int chaveUsuario = dao.BuscaIdUsuario(jtfUsuario.getText().toString());
+            paciente = dao.VerificarTipo(chaveUsuario);
+            
+            
+        } catch (Exception ex) {
+            Logger.getLogger(ViewLogin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+           if( paciente == true)
+           {
+           new TelaPrincipalPaciente(login,jtfUsuario.getText()).setVisible(true);
+           this.dispose();
+
+           }
+           else
+           {
            new TelaPrincipal(login,jtfUsuario.getText()).setVisible(true);
            this.dispose();
+           }
        }else{
            JOptionPane.showMessageDialog(null, "Usuário ou senha inválidos.", "", JOptionPane.ERROR_MESSAGE);
             jtfUsuario.setText("");

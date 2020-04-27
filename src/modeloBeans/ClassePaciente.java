@@ -7,7 +7,7 @@ package modeloBeans;
 
 /**
  *
- * @author Alk
+ * @author SL
  */
 
 public class ClassePaciente extends ClassePessoa {

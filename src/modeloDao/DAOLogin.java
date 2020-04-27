@@ -54,6 +54,53 @@ public class DAOLogin {
         return check;
 
     }
+    
+    public int BuscaIdUsuario(String usuario) throws Exception {
+
+        String sql = ("select * from cadastro_usuario where usuario ='" + usuario + "'");
+
+        ConexaoBD con = new ConexaoBD();
+
+        PreparedStatement ps = con.getConnection().prepareStatement(sql);
+
+        ResultSet rs = ps.executeQuery();
+
+        int guardakeyUsuario= 0;
+
+        if (rs.next()) {
+
+            guardakeyUsuario = (rs.getInt("personid"));
+
+        }
+
+        rs.close();
+        ps.close();
+
+        return guardakeyUsuario;
+    }
+    public boolean VerificarTipo(int chaveUsuario) throws Exception {
+
+        String sql = ("SELECT * FROM public.paciente where personid = '" + chaveUsuario + "'");
+
+        ConexaoBD con = new ConexaoBD();
+
+        PreparedStatement ps = con.getConnection().prepareStatement(sql);
+
+        ResultSet rs = ps.executeQuery();
+
+        boolean check = false;
+
+        if (rs.next()) {
+
+         check = true;
+
+        }
+
+        rs.close();
+        ps.close();
+
+        return check;
+    }
 
 
  

@@ -170,7 +170,7 @@ public class DAOAgendamento {
                 
              ClasseAgendamento agend = new ClasseAgendamento();
              
-             agend.codigo[i] = rs.getInt("testeid");
+             agend.codigo[i] = rs.getInt("agendamentoid");
              
              i++;
                
@@ -211,7 +211,7 @@ public class DAOAgendamento {
         try {
             
 
-            pstm = con.prepareStatement("select * from agendamento where testeid = '"+resultadoId+"'");  
+            pstm = con.prepareStatement("select * from agendamento where agendamentoid = '"+resultadoId+"'");  
             rs = pstm.executeQuery();
             
             
@@ -219,7 +219,7 @@ public class DAOAgendamento {
                 
                ClasseAgendamento agendamento = new ClasseAgendamento();
               
-               agendamento.agendamentoId = (rs.getInt("testeid"));
+               agendamento.agendamentoId = (rs.getInt("agendamentoid"));
                agendamento.nomePaciente = (rs.getString("nomepaciente"));
                agendamento.Data =  (rs.getString("datavisita"));
                agendamento.Hora = (rs.getString("hora"));
@@ -252,7 +252,7 @@ public class DAOAgendamento {
 
 
         String sql = "update agendamento set datavisita = ?, hora = ? ,status = ? , usuarioalterador = ? "
-                + "where testeid = '"+alterarAgendamento.agendamentoId+"'";
+                + "where agendamentoid = '"+alterarAgendamento.agendamentoId+"'";
         
         try (PreparedStatement ps = con.getConnection().prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
            
