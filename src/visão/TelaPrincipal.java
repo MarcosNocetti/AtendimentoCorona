@@ -57,6 +57,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jMenuFerramentas = new javax.swing.JMenu();
         jMenuItemTelaBemVindo = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
+        jMenuItem6 = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
@@ -201,6 +202,15 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/Teste_2.png"))); // NOI18N
         jMenu3.setText("Mais");
+
+        jMenuItem6.setText("Tela Login");
+        jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem6ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem6);
+
         jMenuBar1.add(jMenu3);
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/information_finish.png"))); // NOI18N
@@ -297,6 +307,12 @@ public class TelaPrincipal extends javax.swing.JFrame {
         visualizar.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jMenuItem6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem6ActionPerformed
+        ViewLogin login = new ViewLogin();
+        login.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jMenuItem6ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -325,6 +341,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
+    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItemSair;
     private javax.swing.JMenuItem jMenuItemTelaBemVindo;
     private javax.swing.JMenu jMenuSair;

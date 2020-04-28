@@ -9,6 +9,7 @@ package visão;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.awt.Color;
+import java.awt.event.ActionEvent;
 import java.awt.event.ItemEvent;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
@@ -60,22 +61,22 @@ public class ViewVisualizarPacientes extends javax.swing.JFrame  {
     String usuarioLogado;
     public  List<ClasseAgendamento> resultado = new ArrayList();
     
-    DefaultTableModel modelo;
+    //DefaultTableModel modelo;
     
     public ViewVisualizarPacientes(String userLogado ) {
-        
-        DefaultTableModel modelo =  (DefaultTableModel) tbDadosPaciente.getModel();
-      
-     
         
         initComponents();
         
         usuarioLogado =  userLogado;
+        ActionEvent evt = null;
+        jButtonBuscarActionPerformed(evt);
+        
+     
     
         
     }
       
-       TableRowSorter tr;
+       //TableRowSorter tr;
        
     
 
@@ -91,9 +92,9 @@ public class ViewVisualizarPacientes extends javax.swing.JFrame  {
         tbDadosPaciente = new javax.swing.JTable();
         txtFiltrar = new javax.swing.JLabel();
         txtFiltro = new javax.swing.JTextField();
+        jButtonBuscar = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButtonListarPaciente = new javax.swing.JButton();
 
         jLabel2.setText("jLabel2");
 
@@ -245,7 +246,15 @@ public class ViewVisualizarPacientes extends javax.swing.JFrame  {
         });
         jPanel1.add(txtFiltro, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 280, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 670, 400));
+        jButtonBuscar.setText("Buscar");
+        jButtonBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBuscarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButtonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 670, 380));
 
         jPanel3.setBackground(new java.awt.Color(13, 130, 203));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -257,70 +266,9 @@ public class ViewVisualizarPacientes extends javax.swing.JFrame  {
 
         getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 40));
 
-        jButtonListarPaciente.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jButtonListarPaciente.setText("LISTAR DADOS");
-        jButtonListarPaciente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jButtonListarPaciente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonListarPacienteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButtonListarPaciente, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 440, 670, 50));
-
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonListarPacienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonListarPacienteActionPerformed
-   
-        
-       try {
-        
-        String sql =  ("SELECT * from public.pessoa as p\n" +
-       "INNER JOIN public.paciente as pac\n" +
-       "on p.personid = pac.personid ");
-       
-        ConexaoBD con = new ConexaoBD();
-        
-        PreparedStatement ps;
-        
-            ps = con.getConnection().prepareStatement(sql);
-           
-            ResultSet rs;
-       
-            rs = ps.executeQuery();
-            
-           
-            modelo.setNumRows(0);
-          
-       
-        while(rs.next()){
-
-            modelo.addRow(new Object[]{rs.getString("nome"),rs.getString("sexo"),
-                rs.getString("idade"),rs.getString("email"),rs.getString("telefone"),
-                rs.getString("estado"),rs.getString("cidade"),rs.getString("rua"),
-                rs.getString("bairro"),rs.getString("numcasa"),rs.getString("complemento"),
-                rs.getString("cep"), rs.getString("cpf"),rs.getString("rg"),rs.getString("descricaosintomas")});
-           
-        }
-        
-        rs.close();
-        ps.close();
-        
-        
-      
-        } catch (SQLException ex) {
-                
-            Logger.getLogger(ViewVisualizarPacientes.class.getName()).log(Level.SEVERE, null, ex);
-            
-        }
-        
-    
-        
-        
-        
-     
-    }//GEN-LAST:event_jButtonListarPacienteActionPerformed
 
     private void txtFiltroKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyReleased
         
@@ -328,7 +276,7 @@ public class ViewVisualizarPacientes extends javax.swing.JFrame  {
 
     private void txtFiltroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFiltroKeyTyped
 
-        
+        /*
         txtFiltro.addKeyListener(new KeyAdapter(){
         @Override
         public void keyReleased(KeyEvent ke) {
@@ -341,13 +289,60 @@ public class ViewVisualizarPacientes extends javax.swing.JFrame  {
         tr =  new TableRowSorter(modelo);
         
         tbDadosPaciente.setRowSorter(tr);
-       
+       */
     }//GEN-LAST:event_txtFiltroKeyTyped
+
+    private void jButtonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBuscarActionPerformed
+        try {
+            String sql = null;
+            if(txtFiltro.getText().equals("") || txtFiltro.getText() == null){
+                sql = "SELECT * from public.pessoa as p "
+                + "INNER JOIN public.paciente "
+                + "as pac on p.personid = pac.personid";
+            } else  {
+                sql = "SELECT * from public.pessoa as p "
+                + "INNER JOIN public.paciente "
+                + "as pac on p.personid = pac.personid "
+                + "where p.nome like '" + txtFiltro.getText() + "%' ORDER BY p.nome";
+            }
+
+            ConexaoBD con = new ConexaoBD();
+
+            PreparedStatement ps;
+
+            ps = con.getConnection().prepareStatement(sql);
+
+            ResultSet rs;
+
+            rs = ps.executeQuery();
+
+            DefaultTableModel modelo =  (DefaultTableModel) tbDadosPaciente.getModel();
+            modelo.setNumRows(0);
+
+            while(rs.next()){
+
+                modelo.addRow(new Object[]{rs.getString("nome"),rs.getString("sexo"),
+                    rs.getString("idade"),rs.getString("email"),rs.getString("telefone"),
+                    rs.getString("estado"),rs.getString("cidade"),rs.getString("rua"),
+                    rs.getString("bairro"),rs.getString("numcasa"),rs.getString("complemento"),
+                    rs.getString("cep"), rs.getString("cpf"),rs.getString("rg"),rs.getString("descricaosintomas")});
+
+        }
+
+        rs.close();
+        ps.close();
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ViewVisualizarPacientes.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }//GEN-LAST:event_jButtonBuscarActionPerformed
 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonListarPaciente;
+    private javax.swing.JButton jButtonBuscar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
