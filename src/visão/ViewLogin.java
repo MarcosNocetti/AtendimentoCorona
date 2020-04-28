@@ -5,19 +5,13 @@
  */
 package visão;
 
-import modeloBeans.ClassePaciente;
 import modeloBeans.ClasseCadastro;
 import modeloDao.DAOPaciente;
-import modeloDao.DAOCadastro;
 import modeloDao.DAOLogin;
-import com.sun.glass.events.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javafx.scene.paint.Color;
 import javax.swing.JOptionPane;
 import static java.awt.Color.*;
-import java.awt.Font;
-import modeloBeans.ClassePessoa;
 /**
  *
  * @author 

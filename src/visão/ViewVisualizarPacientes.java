@@ -7,48 +7,17 @@
  */
 package visão;
 
-import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
-import java.awt.Color;
 import java.awt.event.ActionEvent;
-import java.awt.event.ItemEvent;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.text.DateFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Vector;
-import modeloBeans.ClasseEquipeSaude;
-import modeloDao.DAOCadastro;
-import modeloDao.DAOPessoa;
-import modeloDao.DAOEquipeDeSaude;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ComboBoxModel;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
-import static javax.swing.JOptionPane.YES_NO_OPTION;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableRowSorter;
 import modeloBeans.ClasseAgendamento;
-import modeloBeans.ClasseCadastro;
-import modeloBeans.ClasseCidade;
-import modeloBeans.ClassePessoa;
 import modeloConection.ConexaoBD;
-import modeloDao.DAOAgendamento;
-import modeloDao.DAOCidades;
-import javax.swing.RowFilter; 
-import javax.swing.table.TableModel;
 
 /**
  *

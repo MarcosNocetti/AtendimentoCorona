@@ -127,7 +127,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Clique no que te corresponde para se cadastrar:"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor Padr&#xe3;o"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Constraints>
@@ -166,7 +166,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;u&gt; + Sou integrante de uma equipe de sa&#xfa;de.&lt;/u&gt;&lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor em Forma de M&#xe3;o"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
@@ -187,7 +187,7 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="&lt;html&gt; &lt;u&gt; + Sou paciente. &lt;/u&gt; &lt;/html&gt;"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
-                  <Color id="Cursor em Forma de M&#xe3;o"/>
+                  <Color id="Default Cursor"/>
                 </Property>
               </Properties>
               <Events>
