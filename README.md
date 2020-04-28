@@ -7,6 +7,8 @@
 </ul>
 <h3>Documentação</h3>
 <a href=““>Documentação Final</a>
-  
+<h3>Interface Grafica</h3>
+
+![Alt text](https://github.com/MarcosNocetti/AtendimentoCorona/blob/master/Inicio.png?raw=true "Interface Grafica")
 <p>#AtendimentoCorona</p>
 
