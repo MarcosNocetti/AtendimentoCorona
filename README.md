@@ -1,7 +1,11 @@
 <h1>Trabalho Engenharia de software 2</h1>
 <h3>Tecnologias usadas</h3>
-  <ul>Apache NetBeans</ul>
-  <ul>Java</ul>
-  <ul>PostgreeSQL</ul>
+<ul>
+  <li>Apache NetBeans</li>
+  <li>Java</li>
+  <li>PostgreeSQL</li>
+</ul>
+<h3>Documentação</h3>
+  
 <p>#AtendimentoCorona</p>
 
