@@ -6,7 +6,7 @@
   <li>PostgreeSQL</li>
 </ul>
 <h3>Documentação</h3>
-<a href=“encurtador.com.br/ovGOT“>Documentação Final</a>
+<a href=“https://bityli.com/t6kQO“>Documentação Final</a>
 <h3>Interface Grafica</h3>
 
 ![Alt text](https://github.com/MarcosNocetti/AtendimentoCorona/blob/master/Inicio.png?raw=true "Interface Grafica")
