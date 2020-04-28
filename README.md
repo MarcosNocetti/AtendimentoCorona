@@ -10,7 +10,8 @@
 [Codificação do aplicativo](https://github.com/MarcosNocetti/AtendimentoCorona/files/4543408/Codificacao.do.aplicativo.pdf)
 
 </br>
-[Relatório UML - Final](https://github.com/MarcosNocetti/AtendimentoCorona/files/4543338/Relatorio.UML.-.Final.-.Atividade.06.pdf)
+[Relatorio.UML.-.Final](https://github.com/MarcosNocetti/AtendimentoCorona/files/4543410/Relatorio.UML.-.Final.-.Atividade.06.pdf)
+
 
 <h3>Interface Grafica</h3>
 
